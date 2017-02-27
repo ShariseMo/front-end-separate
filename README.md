@@ -1,6 +1,7 @@
-# 前端与后端协作脚手架
+﻿# 前端与后端协作脚手架
 
-## 功能
+## 功能 [browsersync]
+- borwsersync 可以让浏览器快速响应文件更改并自动刷新页面，同时在不同设备下调试。
 - css样式文件的热更新
 - html、js文件修改触发浏览器页面自动刷新
 - 后台api中间层
@@ -28,8 +29,9 @@ npm run mock
     app               前端文件
     app/css           css存放路径
     app/js            js存放路径
-    test/mock-api     mock api路径
-    index.js          项目启动文件
+    src               存放需要经过编译才能使用的源文件（sass等）
+    test/mock-api     mock api路径(存放虚构的json文件等)
+    index.js          项目启动文件【写自执行命令、被监听的文件、后端api地址等】
     README.md         
     package.json
 
