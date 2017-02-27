@@ -1,0 +1,36 @@
+[{
+    "label":"品牌",
+    "name":"brand",
+    "type":"select",
+    "necessary":false,
+    "value":[
+        {"option":"明灯共和"},
+        {"option":"简美"},
+        {"option":"明灯共和22"},
+        {"option":"简美222"}
+    ]
+},{
+    "label":"商品名称",
+    "name":"productName",
+    "type":"input",
+    "necessary":true,
+    "value":""
+},{
+    "label":"广告词",
+    "name":"adv",
+    "type":"textarea",
+    "necessary":true,
+    "value":""
+},{
+    "label":"商品名称",
+    "name":"productName",
+    "type":"input",
+    "necessary":true,
+    "value":""
+},{
+    "label":"广告词",
+    "name":"adv",
+    "type":"textarea",
+    "necessary":true,
+    "value":""
+}]

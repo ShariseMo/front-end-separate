@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="./css/index.css">
+  
+</head>
+<body>
+    <div id="todoList"></div>
+    <ul id="bookTypeList" class="bookType"></ul>
+    <div class="clear"></div>
+    <table id="bookList" class="bookList">
+        <thead>
+            <tr>
+                <th>书名</th>
+                <th>作者</th>
+                <th>编号</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script type="text/template" id="type-list-template">
+        {{#.}}
+            <li>{{type}}</li>
+        {{/.}}
+    </script>
+
+    <script type="text/template" id="book-list-template">
+        {{#.}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{author}}</td>
+                <td>{{bookNo}}</td>
+            </tr>
+        {{/.}}
+    </script>
+
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/mustache.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script type="text/javascript">
+        $("#bookTypeList li").eq(0).addClass("active");
+
+    // todoList
+    $.ajax({
+        url:"/v1/foobizzle.json",
+        method:"get",
+        success:function(data){  
+            var resultHtml = "<ul>";
+            for(var i=0; i<data.length; i++){
+                resultHtml += "<li>" +data[i].title+" - " +(data[i].done?"完成":"未完成") + "</li>";
+            }
+            resultHtml += "</ul>";
+            $("#todoList").html(resultHtml);
+        }
+    });
+
+    // tab switch
+
+    var bookData;
+    function getBook(callback){
+        $.ajax({
+            url:"/v1/book.json",
+            method:'get',
+            success:function(data){
+                bookData = data;
+
+                var tTypeList = $("#type-list-template").html();
+                Mustache.parse(tTypeList);
+                $("#bookTypeList").append(Mustache.render(tTypeList,data));
+
+                var tBookList = $("#book-list-template").html();
+                Mustache.parse(tBookList);
+                $("#bookList tbody").html(Mustache.render(tBookList,data[0]['books']));
+                $("#bookTypeList li").click(function(){
+                    var idx = $(this).index();
+                    $("#bookList tbody").html(Mustache.render(tBookList,data[idx]['books']));
+                    $(this).addClass("active").siblings().removeClass("active");
+                });
+                callback(bookData);
+            }
+        });
+    }
+    
+    getBook(function(data){
+        console.dir(data);
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[{
+    "type":"名著",
+    "books":[{
+        "name":"西游记",
+        "author":"黄承恩",
+        "price":123.00,
+        "bookNo":"M001"
+    },{
+        "name":"红楼梦",
+        "author":"曹雪芹",
+        "price":110.00,
+        "bookNo":"M002"
+    }]
+},{
+    "type":"动漫",
+    "books":[{
+        "name":"黑猫警长",
+        "author":"毛毛",
+        "price":23.00,
+        "bookNo":"D001"
+    },{
+        "name":"多啦A梦",
+        "author":"啊啊",
+        "price":23.00,
+        "bookNo":"D002"
+    }]
+}]
