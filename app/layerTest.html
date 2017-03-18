@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layer content</title>
+    <link rel="stylesheet" type="text/css" href="./js/layer/layer.css">
+    <style type="text/css">
+        .hidden{display: none;}
+        #app{
+            padding:10px 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <script type="text/template" id="form_tpl">
+        <div id="app" class="hidden">
+            <p>name:<input type="text" name="username"></p>
+            <p>man:<input type="radio" name="sex"> woman:<input type="radio" name="sex"></p>
+            <p>name:<input type="text" name="username"></p>
+            <p>man:<input type="radio" name="sex"> woman:<input type="radio" name="sex"></p>
+        </div>
+    </script>
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/mustache.min.js"></script>
+    <script type="text/javascript" src="./js/layer/layer.js"></script>
+
+    <script type="text/javascript">
+        layer.open({
+            type:1,
+            btn:["ok","cancel"],
+            content: $("#form_tpl")
+        });
+    </script>
+</body>
+</html>

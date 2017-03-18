@@ -16,9 +16,8 @@
     </style>
 </head>
 <body>
+    <!-- 动态表单 -->
     <div class="form_box"></div>
-   
-
     <script type="text/template" id="form_tpl">
          <form id="infoForm">
              <ul>
@@ -68,19 +67,24 @@
         })
 
 
-        (function () {
-            var b = document.documentElement,
-            a = function () {
-                var a = b.getBoundingClientRect().width;
-                b.style.fontSize = (100/750) * (a >= 750 ? 750 : a) + "px"
-            }, c = null;
-            window.addEventListener("resize", function () {
-                clearTimeout(c);
-                c = setTimeout(a, 300)
-            });
-            a();
-        })();
-
+        // (function () {
+        //     var b = document.documentElement,
+        //     a = function () {
+        //         var a = b.getBoundingClientRect().width;
+        //         b.style.fontSize = (100/750) * (a >= 750 ? 750 : a) + "px"
+        //     }, c = null;
+        //     window.addEventListener("resize", function () {
+        //         clearTimeout(c);
+        //         c = setTimeout(a, 300)
+        //     });
+        //     a();
+        // })();
     </script>
+
+    <!-- 动态表单END -->
+
+
+    <!-- layer弹窗内容替换 -->
+    <!-- layer内容替换END -->
 </body>
 </html>
